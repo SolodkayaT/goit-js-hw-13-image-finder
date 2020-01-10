@@ -1,6 +1,8 @@
 import apiService from './services/apiService';
 import imageTamplate from './templates/card-image.hbs';
 
+const basicLightbox = require('basiclightbox');
+
 const refs = {
   searchForm: document.querySelector('#search-form'),
   galeryList: document.querySelector('#galery-list'),
@@ -38,6 +40,12 @@ function handleLoadMoreButton() {
   apiService.fetchImages().then((data) => buildListImageMarkup(data));
   scrollImage();
 }
-
+function handleShowImage({ target }) {
+  if (target.tagName !== 'IMG') return;
+  const url = target.dataset.src;
+  console.log(url);
+  basicLightbox.create(`<img width="1400" height="900" src=${url}>`).show();
+}
 refs.searchForm.addEventListener('submit', searchFormSubmitHandler);
 refs.loadMoreBtn.addEventListener('click', handleLoadMoreButton);
+refs.galeryList.addEventListener('click', handleShowImage);

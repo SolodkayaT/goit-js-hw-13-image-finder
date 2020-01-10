@@ -1,4 +1,4 @@
-const URL =  'https://cors-anywhere.herokuapp.com/https://pixabay.com/api/?key=14836280-095028a335045ad546bd82bf5&image_type=photo&orientation=horizontal';
+const URL =  'https://pixabay.com/api/?key=14836280-095028a335045ad546bd82bf5&image_type=photo&orientation=horizontal';
 export default {
   page: 1,
   per_page: 6,
